@@ -1,6 +1,33 @@
-﻿@{
+﻿@model IEnumerable<LapBigSchool_VoThanhThong.Models.Course>
+@{
     ViewBag.Title = "Home Page";
 }
+<div class="row">
+    <ul class="course" style="list-style: none; margin-top: 20px">
+        @foreach (var course in Model)
+        {
+            <li style="position:relative; margin-bottom:30px">
+                <div class="date" style="text-align: center; background-color: #d41d50; color:white; width:60px;border-radius:8px" >
+                    <div class="month">
+                        @course.DateTime.ToString("MM")
+                    </div>
+                    <div class="day">
+                        @course.DateTime.ToString("dd")
+                    </div>
+                </div>
+                <div class="details" style="position:absolute; top:0; left:70px">
+                    <span class="lecturer">
+                        @course.Lecturer.Name
+                    </span>
+                    <span class="category">
+                        @course.Category.Name
+                    </span>
+                </div>
+
+            </li>
+         }
+    </ul>
+</div>
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
